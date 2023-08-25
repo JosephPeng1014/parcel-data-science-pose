@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>app</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- js 入口 -->
+    <script type="module" src="app.js"></script>
+  </head>
+
+  <body>
+    <!-- 看 fps 用 -->
+    <div class="absolute top-0 left-0">
+      <div id="stats"></div>
+    </div>
+
+    <!-- angles -->
+    <div class="absolute top-0 right-0 text-red-500 z-50">
+      <div id="text">hello</div>
+    </div>
+
+    <!-- 放遊戲, camera, canvas -->
+    <div id="main">
+      <div
+        id="page1"
+        class="absolute top-0 left-0 w-full h-full bg-white hidden"
+      >
+        <div class="pt-40">page1</div>
+        <div>
+          <button
+            id="start-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            start
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="page2"
+        class="absolute top-0 left-0 w-full h-full bg-white hidden"
+      >
+        <div class="pt-40">page2</div>
+        <div>
+          <!-- <button
+            id="next-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            next
+          </button> -->
+          <button
+            id="pose1-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            pose1
+          </button>
+          <button
+            id="pose2-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            pose2
+          </button>
+          <button
+            id="pose3-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            pose3
+          </button>
+          <button
+            id="pose4-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            pose4
+          </button>
+          <button
+            id="pose5-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            pose5
+          </button>
+          <button
+            id="pose6-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            pose6
+          </button>
+          <button
+            id="pose7-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            pose7
+          </button>
+          <button
+            id="pose8-btn"
+            class="rounded-full bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            pose8
+          </button>
+        </div>
+      </div>
+
+      <!-- 遊戲 canvas -->
+      <div id="pixi-content" class="hidden">
+        <canvas id="pixi-canvas"></canvas>
+      </div>
+
+      <!-- 其他 camera, 和其他用於 pose 的 canvas -->
+      <div id="other" class="hidden">
+        <!-- 用於 pose 的 canvas -->
+        <canvas id="output"></canvas>
+
+        <!-- webcam video -->
+        <video
+          id="video"
+          playsinline
+          style="
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+          /* visibility: hidden; */
+          width: auto;
+          height: auto;
+          "
+        ></video>
+      </div>
+    </div>
+  </body>
+</html>
