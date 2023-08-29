@@ -490,13 +490,19 @@ setInterval(() => {
     const angles = pose.angles;
     const text = $("#text");
     text.html("");
+
+    const angleDiffs = window.angleDiffs
     for (let i = 1; i <= 8; i++) {
       const angle = angles[i];
-      if (angle) {
-        text.append(`<div>${i}: ${angle}</div>`);
-      } else {
-        text.append(`<div>${i}: -</div>`);
-      }
+      const angleDiff = angleDiffs[i]
+      const content = `${i}: ${angle || '-'} (${angleDiff!==null? angleDiff : '-'})`
+
+      text.append(`<div>${content.padEnd(12, '')}</div>`);
+      // if (angle) {
+      //   text.append(`<div>${i}: ${angle}</div>`);
+      // } else {
+      //   text.append(`<div>${i}: -</div>`);
+      // }
     }
   }
 }, 1000);
@@ -518,6 +524,8 @@ function startCheckPose(poseIndex) {
     const currentTime = Date.now();
     const timeout = 1000;
     const pose = window.poses[0];
+    const angleDiffs = new Array(9).fill(null)
+
     if (pose) {
       const angles = pose.angles;
 
@@ -539,7 +547,7 @@ function startCheckPose(poseIndex) {
       if (typeof angles[1] !== "undefined") {
         let angleDiff = Math.abs(angles[1] - regAngles[1])
         if(angleDiff > 180) { angleDiff = 360 - angleDiff }
-        console.log('1', angleDiff)
+        angleDiffs[1] = angleDiff
 
         // 在範圍內
         if (angleDiff < diffThread) {
@@ -553,7 +561,7 @@ function startCheckPose(poseIndex) {
       if (typeof angles[2] !== "undefined") {
         let angleDiff = Math.abs(angles[2] - regAngles[2])
         if(angleDiff > 180) { angleDiff = 360 - angleDiff }
-        console.log('2', angleDiff)
+        angleDiffs[2] = angleDiff
 
         // 在範圍內
         if (angleDiff < diffThread) {
@@ -567,7 +575,7 @@ function startCheckPose(poseIndex) {
       if (typeof angles[3] !== "undefined") {
         let angleDiff = Math.abs(angles[3] - regAngles[3])
         if(angleDiff > 180) { angleDiff = 360 - angleDiff }
-        console.log('3', angleDiff)
+        angleDiffs[3] = angleDiff
 
         // 在範圍內
         if (angleDiff < diffThread) {
@@ -581,7 +589,8 @@ function startCheckPose(poseIndex) {
       if (typeof angles[4] !== "undefined") {
         let angleDiff = Math.abs(angles[4] - regAngles[4])
         if(angleDiff > 180) { angleDiff = 360 - angleDiff }
-        console.log('4', angleDiff)
+        angleDiffs[4] = angleDiff
+
 
         // 在範圍內
         if (angleDiff < diffThread) {
@@ -595,7 +604,7 @@ function startCheckPose(poseIndex) {
       if (typeof angles[5] !== "undefined") {
         let angleDiff = Math.abs(angles[5] - regAngles[5])
         if(angleDiff > 180) { angleDiff = 360 - angleDiff }
-        console.log('5', angleDiff)
+        angleDiffs[5] = angleDiff
 
         // 在範圍內
         if (angleDiff < diffThread) {
@@ -609,7 +618,7 @@ function startCheckPose(poseIndex) {
       if (typeof angles[6] !== "undefined") {
         let angleDiff = Math.abs(angles[6] - regAngles[6])
         if(angleDiff > 180) { angleDiff = 360 - angleDiff }
-        console.log('6', angleDiff)
+        angleDiffs[6] = angleDiff
 
         // 在範圍內
         if (angleDiff < diffThread) {
@@ -623,7 +632,7 @@ function startCheckPose(poseIndex) {
       if (typeof angles[7] !== "undefined") {
         let angleDiff = Math.abs(angles[7] - regAngles[7])
         if(angleDiff > 180) { angleDiff = 360 - angleDiff }
-        console.log('7', angleDiff)
+        angleDiffs[7] = angleDiff
 
         // 在範圍內
         if (angleDiff < diffThread) {
@@ -637,7 +646,7 @@ function startCheckPose(poseIndex) {
       if (typeof angles[8] !== "undefined") {
         let angleDiff = Math.abs(angles[8] - regAngles[8])
         if(angleDiff > 180) { angleDiff = 360 - angleDiff }
-        console.log('8', angleDiff)
+        angleDiffs[8] = angleDiff
 
         // 在範圍內
         if (angleDiff < diffThread) {
@@ -647,6 +656,8 @@ function startCheckPose(poseIndex) {
           // do nothing
         }
       }
+
+      window.angleDiffs = angleDiffs
 
       if (
         anglesCheckList[1].okTime &&
