@@ -413,6 +413,7 @@ $("#pose1-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
+  $("#pose1-image").show()
   startCheckPose("pose1");
 });
 $("#pose2-btn").on("click", function() {
@@ -421,6 +422,7 @@ $("#pose2-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
+  $("#pose2-image").show()
   startCheckPose("pose2");
 });
 $("#pose3-btn").on("click", function() {
@@ -429,6 +431,7 @@ $("#pose3-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
+  $("#pose3-image").show()
   startCheckPose("pose3");
 });
 $("#pose4-btn").on("click", function() {
@@ -437,6 +440,7 @@ $("#pose4-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
+  $("#pose4-image").show()
   startCheckPose("pose4");
 });
 $("#pose5-btn").on("click", function() {
@@ -445,6 +449,7 @@ $("#pose5-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
+  $("#pose5-image").show()
   startCheckPose("pose5");
 });
 $("#pose6-btn").on("click", function() {
@@ -453,6 +458,7 @@ $("#pose6-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
+  $("#pose6-image").show()
   startCheckPose("pose6");
 });
 $("#pose7-btn").on("click", function() {
@@ -461,6 +467,7 @@ $("#pose7-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
+  $("#pose7-image").show()
   startCheckPose("pose7");
 });
 $("#pose8-btn").on("click", function() {
@@ -469,6 +476,7 @@ $("#pose8-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
+  $("#pose8-image").show()
   startCheckPose("pose8");
 });
 
@@ -660,7 +668,7 @@ function startCheckPose(poseIndex) {
 const PoseAngles = {
   pose1: [0, 152, 154, -176, 176, -173, 121, -172, 65],    // tree
   pose2: [0, -171, -177, -172, 175, 132, 75, -139, 70],    // low lune
-  pose3: [0, -163, 173, -175, -174, 134, 112, -169, 110],  // warrior 1
+  pose3: [0, -166, 169, -174, -176, -120, -152, -129, 162],  // warrior 1
   pose4: [0, 178, -173, 95, 112, 128, 91, -169, 102],      // warrior 2
   pose5: [0, -173, 179, -160, 168, -78, 167, -158, 161],   // warrior 3
   pose6: [0, 167, -174, 164, -168, 91, -90, 97, -97],      // chair
