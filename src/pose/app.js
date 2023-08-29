@@ -413,7 +413,7 @@ $("#pose1-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
-  startCheckPose1();
+  startCheckPose("pose1");
 });
 $("#pose2-btn").on("click", function() {
   window.targetPose = 2;
@@ -421,7 +421,7 @@ $("#pose2-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
-  startCheckPose2();
+  startCheckPose("pose2");
 });
 $("#pose3-btn").on("click", function() {
   window.targetPose = 3;
@@ -429,7 +429,7 @@ $("#pose3-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
-  startCheckPose3();
+  startCheckPose("pose3");
 });
 $("#pose4-btn").on("click", function() {
   window.targetPose = 4;
@@ -437,7 +437,7 @@ $("#pose4-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
-  startCheckPose4();
+  startCheckPose("pose4");
 });
 $("#pose5-btn").on("click", function() {
   window.targetPose = 5;
@@ -445,7 +445,7 @@ $("#pose5-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
-  startCheckPose5();
+  startCheckPose("pose5");
 });
 $("#pose6-btn").on("click", function() {
   window.targetPose = 6;
@@ -453,7 +453,7 @@ $("#pose6-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
-  startCheckPose6();
+  startCheckPose("pose6");
 });
 $("#pose7-btn").on("click", function() {
   window.targetPose = 7;
@@ -461,7 +461,7 @@ $("#pose7-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
-  startCheckPose7();
+  startCheckPose("pose7");
 });
 $("#pose8-btn").on("click", function() {
   window.targetPose = 8;
@@ -469,7 +469,7 @@ $("#pose8-btn").on("click", function() {
   $("#page2").hide();
   $("#pixi-content").show();
   $("#other").show();
-  startCheckPose8();
+  startCheckPose("pose8");
 });
 
 $("#page1").show();
@@ -493,7 +493,7 @@ setInterval(() => {
   }
 }, 1000);
 
-function startCheckPose1() {
+function startCheckPose(poseIndex) {
   // setup 初始值
   const anglesCheckList = [];
   anglesCheckList[1] = { okTime: null };
@@ -524,10 +524,17 @@ function startCheckPose1() {
         }
       }
 
+      const regAngles = PoseAngles[poseIndex]
+      const diffThread = 30
+
       // 檢查角度
       if (typeof angles[1] !== "undefined") {
+        let angleDiff = Math.abs(angles[1] - regAngles[1])
+        if(angleDiff > 180) { angleDiff = 360 - angleDiff }
+        console.log('1', angleDiff)
+
         // 在範圍內
-        if (angles[1] > 0 && angles[1] < 180) {
+        if (angleDiff < diffThread) {
           anglesCheckList[1].okTime = currentTime;
         } else {
           // 不在範圍內, 但曾經 ok, 而且還沒超過 timeout
@@ -536,8 +543,12 @@ function startCheckPose1() {
       }
 
       if (typeof angles[2] !== "undefined") {
+        let angleDiff = Math.abs(angles[2] - regAngles[2])
+        if(angleDiff > 180) { angleDiff = 360 - angleDiff }
+        console.log('2', angleDiff)
+
         // 在範圍內
-        if (angles[2] > 0 && angles[3] < 180) {
+        if (angleDiff < diffThread) {
           anglesCheckList[2].okTime = currentTime;
         } else {
           // 不在範圍內, 但曾經 ok, 而且還沒超過 timeout
@@ -546,8 +557,12 @@ function startCheckPose1() {
       }
 
       if (typeof angles[3] !== "undefined") {
+        let angleDiff = Math.abs(angles[3] - regAngles[3])
+        if(angleDiff > 180) { angleDiff = 360 - angleDiff }
+        console.log('3', angleDiff)
+
         // 在範圍內
-        if (angles[3] > 0 && angles[3] < 180) {
+        if (angleDiff < diffThread) {
           anglesCheckList[3].okTime = currentTime;
         } else {
           // 不在範圍內, 但曾經 ok, 而且還沒超過 timeout
@@ -556,8 +571,12 @@ function startCheckPose1() {
       }
 
       if (typeof angles[4] !== "undefined") {
+        let angleDiff = Math.abs(angles[4] - regAngles[4])
+        if(angleDiff > 180) { angleDiff = 360 - angleDiff }
+        console.log('4', angleDiff)
+
         // 在範圍內
-        if (angles[4] > 0 && angles[4] < 180) {
+        if (angleDiff < diffThread) {
           anglesCheckList[4].okTime = currentTime;
         } else {
           // 不在範圍內, 但曾經 ok, 而且還沒超過 timeout
@@ -566,8 +585,12 @@ function startCheckPose1() {
       }
 
       if (typeof angles[5] !== "undefined") {
+        let angleDiff = Math.abs(angles[5] - regAngles[5])
+        if(angleDiff > 180) { angleDiff = 360 - angleDiff }
+        console.log('5', angleDiff)
+
         // 在範圍內
-        if (angles[5] > 0 && angles[5] < 180) {
+        if (angleDiff < diffThread) {
           anglesCheckList[5].okTime = currentTime;
         } else {
           // 不在範圍內, 但曾經 ok, 而且還沒超過 timeout
@@ -576,8 +599,12 @@ function startCheckPose1() {
       }
 
       if (typeof angles[6] !== "undefined") {
+        let angleDiff = Math.abs(angles[6] - regAngles[6])
+        if(angleDiff > 180) { angleDiff = 360 - angleDiff }
+        console.log('6', angleDiff)
+
         // 在範圍內
-        if (angles[6] > 0 && angles[6] < 180) {
+        if (angleDiff < diffThread) {
           anglesCheckList[6].okTime = currentTime;
         } else {
           // 不在範圍內, 但曾經 ok, 而且還沒超過 timeout
@@ -586,8 +613,12 @@ function startCheckPose1() {
       }
 
       if (typeof angles[7] !== "undefined") {
+        let angleDiff = Math.abs(angles[7] - regAngles[7])
+        if(angleDiff > 180) { angleDiff = 360 - angleDiff }
+        console.log('7', angleDiff)
+
         // 在範圍內
-        if (angles[7] > 0 && angles[7] < 180) {
+        if (angleDiff < diffThread) {
           anglesCheckList[7].okTime = currentTime;
         } else {
           // 不在範圍內, 但曾經 ok, 而且還沒超過 timeout
@@ -596,8 +627,12 @@ function startCheckPose1() {
       }
 
       if (typeof angles[8] !== "undefined") {
+        let angleDiff = Math.abs(angles[8] - regAngles[8])
+        if(angleDiff > 180) { angleDiff = 360 - angleDiff }
+        console.log('8', angleDiff)
+
         // 在範圍內
-        if (angles[8] > 0 && angles[8] < 180) {
+        if (angleDiff < diffThread) {
           anglesCheckList[8].okTime = currentTime;
         } else {
           // 不在範圍內, 但曾經 ok, 而且還沒超過 timeout
@@ -619,4 +654,16 @@ function startCheckPose1() {
       }
     }
   }, 200);
+}
+
+
+const PoseAngles = {
+  pose1: [0, 152, 154, -176, 176, -173, 121, -172, 65],    // tree
+  pose2: [0, -171, -177, -172, 175, 132, 75, -139, 70],    // low lune
+  pose3: [0, -163, 173, -175, -174, 134, 112, -169, 110],  // warrior 1
+  pose4: [0, 178, -173, 95, 112, 128, 91, -169, 102],      // warrior 2
+  pose5: [0, -173, 179, -160, 168, -78, 167, -158, 161],   // warrior 3
+  pose6: [0, 167, -174, 164, -168, 91, -90, 97, -97],      // chair
+  pose7: [0, -175, 176, -110, 109, -83, 84, -80, 82],      // awkward
+  pose8: [0, 157, 158, 80, 95, 179, 62, -173, 164],        // half_moon
 }
